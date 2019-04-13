@@ -144,6 +144,7 @@ print("I'm outside already. Take care of identations in python!")
 
 The same in this case, in each iteration, s will be "hey", then s = "ho" and then s = "let's go" and it will exit the
 loop and continue with the code.
+
 **NOTE** Python uses indentation to know where For loops, While loops, If conditionals are ended!
 
 #### The While loop - The forgotten one
@@ -239,7 +240,7 @@ set_numbers_2 = {1, 2, 3, 4, 5}
 print(set_numbers_2.intersection(set_numbers))  # the intersection will print another set = {3, 5}
 ```
 
-#### The MAGIC behind mutable variables
+### The MAGIC behind mutable variables
 As mutable types, they are pointing to the same memory location (they are pointers, like C), so if you have the great
 idea of doing list_1 = list_2, you won't be copying the list, you will be actually copying the pointer location, so if
 you change one, the other also changes. Dentro video! ->
@@ -269,6 +270,14 @@ print(list_copy_2 is whoops_list)  # Spoiler, it's False
 This, obviously, happens with every MUTABLE variable. So you have to know exactly what you are doing when doing
 this_mutable_var = this_other_mutable_var. Don't say I didn't warn you. I am 99% sure this will happen at 
 some point in your code, but humans do learn by smashing their head into the problems, it's the way we are coded. 
+
+### Ex2: Lorem Ipsum
+Hey you should know about lists and dictionaries already!
+Given the 3 first paragraphs of Lorem Ipsum as string s_lorem_ipsum:
+1. Print how many times the characters "a", "q", "w", "k" appear in s_lorem_ipsum
+2. Find the 3 words that appear the most in s_lorem_ipsum
+
+**PRO TIP:** if you do s_lorem_ipsum.split(" "), you will get a list of words, try it out ;)
 
 A brief summary of (nearly) everything II
 -----
