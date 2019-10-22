@@ -63,11 +63,12 @@ complex_num = 4j
 
 # ----> Strings
 string_sentence = "Hey I am immutable"
+string_with_simple_quotes = 'I am immutable and I am still a string'
 string_text = """
-Las rosas son rojas,
-las violetas son azules,
-este poema no rima,
-puta vida.
+Roses are red,
+violets are blue,
+this is also a string,
+fantastic.
 """
 
 # Booleans: True or False
@@ -88,6 +89,9 @@ if some_true_condition == True:  # if the boolean is True, it will print, if not
 
 if some_true_condition:  # This is the same, but more Pythonic
     print("Hey this still is True")
+
+if not some_true_condition:  # this will not get printed, as it checks for the condition to be False
+    print("I will not get any attention :(")
 
 
 # In here the condition is something more likely to happen inside the code, when we evaluate if a number is greater
@@ -110,17 +114,16 @@ else:
 
 
 # with more than one condition and strings used in conditions. Operators "and", "or" and "not"
-s_sentence = "Leon solo"
-if "leon" in s_sentence and "solo" in s_sentence:
-    print(True)
-elif "castilla <3" in s_sentence or "yo duermo abajo y ARRIBA ESPANYA" in s_sentence:
-    print("Poner alguna burrada aquí")
-elif "fairy" not in s_sentence:  # if this is true, it will print and it won't continue with the other conditions
-    print("terrible trampa del fairy")
-elif "es Madrid y no Madriz" in s_sentence:
-    print("Es que no saben hablar")
+s_sentence = "Lion Alone"
+if "Lion" in s_sentence and "Alone" in s_sentence:  # checks BOTH conditions to be true (and they are)
+    # will enter here, print "Hey ho!" and skip all other conditions because of the if-elif-else structure
+    print("Hey ho!")
+elif "not" in s_sentence or "and" in s_sentence:  # checks ONE condition to be true (neither of them are)
+    print("<--Input something silly here-->")
+elif "lioness" not in s_sentence:  # This is true, but it will not enter here as the first conditional matches
+    print("I'm out of test sentences")
 else:  # if no case is matched
-    print("Los catalanes estamos adoctrinados y tengo un poster de Puigdemont en mi habitacion")
+    print("I am really out of test sentences and this is the else statement")
 ```
 
 ### Loops
@@ -137,9 +140,10 @@ The for loop iterates over an object and at each iteration the counter ("i" in t
 first 0, then 1, then 2... until the object has no more items inside and then python will exit the for loop.
 
 ```python
-for s in ["hey", "ho", "let's go"]:
-    print(s)
-print("I'm outside already. Take care of identations in python!")
+l_objects = ["hey", "ho", "let's go"]
+for obj in l_objects:  # will loop through all the objects in the list
+    print(obj)
+print("I'm outside already. Take care of indentations in python!")
 ```
 
 The same in this case, in each iteration, s will be "hey", then s = "ho" and then s = "let's go" and it will exit the
@@ -159,10 +163,13 @@ while i < 10:  # if you mess with this line -> boom, infinite loop
     i = i + 1  # if you don't include this line -> boom, infinite loop
 
 
+# let's create the same loop as in the For loop to iterate through a list of strings but with While
 list_strings = ["hey", "ho", "let's go"]
 while i < len(list_strings):
     print(list_strings[i])
     i = i + 1
+
+# it's not like for is better than while loop, there will be times where you will be forced to use the while loop
 ```
 
 ### Ex1: The typical programming exercise fo 3s and 5s
@@ -188,9 +195,9 @@ jacobean_matrix = [
     [0, 3, 1]
 ]
 
-# to add things to lists (remember, mutable means mutable)
+# to add things to lists (remember, mutable means mutable like it can change)
 list_numbers.append(66)
-print(list_numbers)  # prints '[12, 33, 44, 55, 66]'
+print(list_numbers)  # prints [12, 33, 44, 55, 66] now
 
 # to retrieve an item
 print(list_numbers[3])  # prints '55'
@@ -207,22 +214,23 @@ It's like a table with two columns: the Key and the Value. The only way to get t
 is to ask for it with the Key.
 ```python
 # dictionaries are like an UNORDERED list of key:value pairs
-d_got_alive = {"juan de las nieves": True, "Tyrion Lannister": True, "Ned Stark": False}
+d_got_is_alive = {"John Snow": True, "Tyrion Lannister": True, "Ned Stark": True}
 
 # to retrieve an item, like lists but by the KEY
-print(d_got_alive["Ned Stark"])  # prints 'False' :(
+print(d_got_is_alive["Ned Stark"])
 
 # example with for loop
-for key in d_got_alive.keys():  # the method .keys() returns a list of the keys in the dictionary. OJU! Might not be ordered!
+# the method .keys() of a dictionary returns a list of the keys in the dictionary. WATXAUT! It might not be ordered!
+for key in d_got_is_alive.keys():
     s_character = key
-    is_alive = d_got_alive[key]
+    is_alive = d_got_is_alive[key]
     print("Is {character} alive? {is_alive}".format(character=s_character, is_alive=is_alive))
 
 # to add elements ->
-d_got_alive["Tommy Lannister spoiler?"] = False
+d_got_is_alive["Tommy Lannister"] = False  # RIP Tommy Lannister (?)
 
 # if the key already exists, you OVERWRITE the value. Also, the type of the keys and the values might change
-d_got_alive["Tyrion Lannister"] = "Maybe, who knows jejejejeje"
+d_got_is_alive["Tyrion Lannister"] = "Maybe, who knows HUEHUEHUEHUE"
 ```
 
 #### Sets
@@ -244,7 +252,7 @@ print(set_numbers_2.intersection(set_numbers))  # the intersection will print an
 As mutable types, they are pointing to the same memory location (they are pointers, like C), so if you have the great
 idea of doing list_1 = list_2, you won't be copying the list, you will be actually copying the pointer location, so if
 you change one, the other also changes. Dentro video! ->
-```Python
+```python
 whoops_list = ["I", "am", "really good", "at Python"]
 i_am_really_bad_at_python_list = whoops_list
 i_am_really_bad_at_python_list.append("OR AM I????")
@@ -257,12 +265,12 @@ print(whoops_list is i_am_really_bad_at_python_list)  # Spoiler, it's True
 ```python
 whoops_list = ["I", "am", "really good", "at Python"]
 
-# --> METHOD 1: The Orthographical-N*zi Python guy
+# --> METHOD 1: The Pythonic way
 import copy
 list_copy = copy.deepcopy(whoops_list)
 print(list_copy is whoops_list)  # Spoiler, it's False
 
-# --> METHOD 2: The "I don't have time for this!" guy
+# --> METHOD 2: The 'I don't have time for this!' guy - don't be this guy
 list_copy_2 = whoops_list[:]
 print(list_copy_2 is whoops_list)  # Spoiler, it's False
 ```
@@ -279,22 +287,16 @@ Given the 3 first paragraphs of Lorem Ipsum as string s_lorem_ipsum:
 
 **PRO TIP:** if you do s_lorem_ipsum.split(" "), you will get a list of words, try it out ;)
 
-A brief summary of (nearly) everything II
+Coming Soon: A brief summary of (nearly) everything II
 -----
 Under construction
-### Pure Functions
-Under construction
-### Impure Functions
-Under construction
-### Namespace
-Under construction
+- Pure Functions
+- Impure Functions
+- Namespace
 
 ### Next Steps
-Gamification with programming quizzes:
-https://www.codewars.com/
+- Gamification with programming quizzes: https://www.codewars.com/
 
-Mathematic and programming problems:
-https://projecteuler.net
+- Mathematic and programming problems: https://projecteuler.net
 
-ML problem solving competition, big money:
-https://www.kaggle.com/
+- ML problem solving competition, big money: https://www.kaggle.com/

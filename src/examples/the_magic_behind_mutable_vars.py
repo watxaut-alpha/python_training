@@ -17,7 +17,7 @@ print(whoops_list is i_am_really_bad_at_python_list)
 
 
 # WAIT, so if I want to copy a list, how do I do it?
-# --> METHOD 1: The Orthographical-Nazi Python guy
+# --> METHOD 1: The Pythonic way
 import copy
 
 list_copy = copy.deepcopy(whoops_list)
