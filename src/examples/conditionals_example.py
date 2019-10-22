@@ -1,5 +1,3 @@
-
-
 # The conditionals in Python are done with If, elif and else and conditions as booleans. Let's see how:
 
 # here we have one boolean
@@ -9,6 +7,9 @@ if some_true_condition == True:  # if the boolean is True, it will print, if not
 
 if some_true_condition:  # This is the same, but more Pythonic
     print("Hey this still is True")
+
+if not some_true_condition:  # this will not get printed, as it checks for the condition to be False
+    print("I will not get any attention :(")
 
 
 # In here the condition is something more likely to happen inside the code, when we evaluate if a number is greater
@@ -31,17 +32,13 @@ else:
 
 
 # with more than one condition and strings used in conditions. Operators "and", "or" and "not"
-s_sentence = "Leon solo"
-if "leon" in s_sentence and "solo" in s_sentence:
-    print(True)
-elif "castilla <3" in s_sentence or "yo duermo abajo y ARRIBA ESPANYA" in s_sentence:
-    print("Poner alguna burrada aquí")
-elif "fairy" not in s_sentence:  # if this is true, it will print and it won't continue with the other conditions
-    print("terrible trampa del fairy")
-elif "es Madrid y no Madriz" in s_sentence:
-    print("Es que no saben hablar")
+s_sentence = "Lion Alone"
+if "Lion" in s_sentence and "Alone" in s_sentence:  # checks BOTH conditions to be true (and they are)
+    # will enter here, print "Hey ho!" and skip all other conditions because of the if-elif-else structure
+    print("Hey ho!")
+elif "not" in s_sentence or "and" in s_sentence:  # checks ONE condition to be true (neither of them are)
+    print("<--Input something silly here-->")
+elif "lioness" not in s_sentence:  # This is true, but it will not enter here as the first conditional matches
+    print("I'm out of test sentences")
 else:  # if no case is matched
-    print("Los catalanes estamos adoctrinados y tengo un poster de Puigdemont en mi habitacion")
-
-
-
+    print("I am really out of test sentences and this is the else statement")
